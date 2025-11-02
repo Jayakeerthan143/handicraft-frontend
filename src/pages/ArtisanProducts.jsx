@@ -259,8 +259,8 @@ const handleSaveEdit = async () => {
                 {product.images && product.images.length > 0 ? (
                   <div style={{ position: 'relative' }}>
                     <img
-                      src={`https://handicraft-backend-azwn.onrender.com
-${product.images[0].url}`}
+                     src={`https://handicraft-backend-azwn.onrender.com${product.images[0]}`}
+
                       alt={product.name}
                       style={{
                         width: '100%',
@@ -444,8 +444,8 @@ ${product.images[0].url}`}
                       }}
                     >
                       <img
-                        src={`https://handicraft-backend-azwn.onrender.com
-${image.url}`}
+src={image}
+
                         alt={`Product ${index + 1}`}
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
