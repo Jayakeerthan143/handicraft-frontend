@@ -12,7 +12,7 @@ const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [quantity, setQuantity] = useState(1);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0); // ✅ Track selected image
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   useEffect(() => {
     API.get(`/products/${id}`)
@@ -65,15 +65,14 @@ const ProductDetails = () => {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
-        {/* ✅ Product Image Gallery */}
+        {/* Product Image Gallery */}
         <div>
           {/* Main Image Display */}
           <div style={{ 
             width: '100%',
             height: '500px',
             background: product.images && product.images.length > 0
-              ? `url(https://handicraft-backend-azwn.onrender.com
-${product.images[selectedImageIndex].url}) center/cover`
+              ? `url(${product.images[selectedImageIndex]}) center/cover`
               : 'linear-gradient(135deg, #e9f5f4 0%, #c7e9e5 100%)',
             borderRadius: '12px',
             display: 'flex',
@@ -162,7 +161,7 @@ ${product.images[selectedImageIndex].url}) center/cover`
             )}
           </div>
 
-          {/* ✅ Thumbnail Gallery */}
+          {/* Thumbnail Gallery */}
           {product.images && product.images.length > 1 && (
             <div style={{ 
               display: 'flex', 
@@ -177,8 +176,7 @@ ${product.images[selectedImageIndex].url}) center/cover`
                   style={{
                     minWidth: '90px',
                     height: '90px',
-                    background: `url(https://handicraft-backend-azwn.onrender.com
-${image.url}) center/cover`,
+                    background: `url(${image}) center/cover`,
                     borderRadius: '8px',
                     cursor: 'pointer',
                     border: selectedImageIndex === index ? '3px solid #2a9d8f' : '2px solid #ddd',
